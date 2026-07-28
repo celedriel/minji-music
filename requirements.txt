@@ -2,3 +2,4 @@ tornado
 disnake
 yt-dlp
 PyNaCl
+pydub
