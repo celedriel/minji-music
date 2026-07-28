@@ -5,14 +5,13 @@ from keep_alive import keep_alive
 
 intents = disnake.Intents.default()
 intents.members = True
+intents.message_content = True 
 
 keep_alive()
 
-testing = False
-
 client = commands.Bot(
-    command_prefix = "m!",
-    case_insensitive = True,
+    command_prefix="m!",
+    case_insensitive=True,
     intents=intents,
 )
 
@@ -21,7 +20,6 @@ client.remove_command('help')
 @client.event
 async def on_ready():
     print(f'Entramos como {client.user}')
-
     await client.change_presence(activity=disnake.Activity(type=disnake.ActivityType.listening, name="minji sound"))
 
 
@@ -33,6 +31,6 @@ for filename in os.listdir('./cogs'):
 TOKEN = os.environ.get("TOKEN")
 
 if not TOKEN:
-    TOKEN = 'seu token aqui, caso são use os secrets do replit ou env'
+    TOKEN = 'seu_token_aqui_caso_nao_use_os_secrets_do_replit_ou_env'
 
 client.run(TOKEN)
